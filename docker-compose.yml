@@ -15,8 +15,8 @@ services:
         source: ./haproxy/conf/haproxy.cfg
         target: /usr/local/etc/haproxy/haproxy.cfg
       # - type: bind
-      #   source: ./haproxy/ssl/localhost.pem
-      #   target: /etc/localhost.pem
+      #   source: ./haproxy/ssl/cert.pem
+      #   target: /etc/cert.pem
     links:
       - nginx_server1
       - nginx_server2
