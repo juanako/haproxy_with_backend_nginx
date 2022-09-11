@@ -10,6 +10,10 @@ services:
     ports:
       - "8080:80"
       - "8404:8404"
+    volumes:
+      - type: bind
+        source: ./haproxy/conf/haproxy.cfg
+        target: /usr/local/etc/haproxy/haproxy.cfg
     links:
       - nginx_server1
       - nginx_server2
@@ -19,10 +23,18 @@ services:
     container_name: nginx_server1
     build:
       context: nginx/
+    volumes:
+      - type: bind
+        source: ./nginx/conf/backend_server.conf
+        target: /etc/nginx/conf.d/backend_server.conf
   nginx_server2:
     image: local/nginx:1.23.1
     restart: always
     container_name: nginx_server2
     build:
       context: nginx/
+    volumes:
+      - type: bind
+        source: ./nginx/conf/backend_server.conf
+        target: /etc/nginx/conf.d/backend_server.conf
     
