@@ -2,7 +2,7 @@
 This docker-compose file allow to build and run haproxy with two backend servers. By default HA Proxy is mapped locally on 8080 port and traffic is proxied to one of two nginx servers.
 
 # Configuration
-Configuration is stored locally in conf directories. To run the same images across multiple environments and decrese number of tags in the registry all configuration is mounted per enviornment.
+Configuration is stored locally in conf directories. To run the same images across multiple environments and decrese number of tags in the registry all configuration is mounted per environment.
 
 # Docker registry
 Each push to master is triggering github action which build and push images to [docker hub public registry](https://hub.docker.com/u/lukaszdurak). All the images are stored into separate repository even there is no changes into dockerfile, that was done to cache image in specific version that we requires.
